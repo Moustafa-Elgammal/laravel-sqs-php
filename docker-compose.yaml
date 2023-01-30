@@ -1,0 +1,8 @@
+services:
+  app:
+    container_name: app
+    image: elgammalx/php8.2_composer:composer
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 8080:9000
