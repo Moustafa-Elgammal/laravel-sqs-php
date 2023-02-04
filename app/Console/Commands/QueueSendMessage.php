@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\SendAWSMessage;
 use Illuminate\Console\Command;
 
 class QueueSendMessage extends Command
@@ -11,14 +12,14 @@ class QueueSendMessage extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'queue:send';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'send message to aws queu';
 
     /**
      * Execute the console command.
@@ -27,6 +28,14 @@ class QueueSendMessage extends Command
      */
     public function handle()
     {
+        $data = [
+            'id' => 1,
+            'name' => 'moustafa',
+            'age' => 29
+        ];
+
+        SendAWSMessage::dispatch($data);
+
         return Command::SUCCESS;
     }
 }
