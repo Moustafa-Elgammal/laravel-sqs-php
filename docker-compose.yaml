@@ -1,7 +1,8 @@
 services:
   app:
     container_name: app
-    image: elgammalx/php8.2_composer:composer
+    image: elgammalx/php8.2:latest
+
     volumes:
       - .:/var/www/html
     ports:
